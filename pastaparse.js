@@ -88,7 +88,7 @@ let pastaparse = {
      * Finds the key of the first element matching the predicate instead of the element itself.
      * @param {object} object The object to inspect.
      * @param {function} predicate The function invoked per iteration.
-     * @return {*} The key of the matched element, else undefined.
+     * @returns {*} The key of the matched element, else undefined.
      */
     findKey(object, predicate) {
         let firstKey = undefined;
@@ -132,7 +132,7 @@ let pastaparse = {
      * Creates an array of elements split into groups the length of size. If array can't be split evenly, the final chunk will be the remaining elements.
      * @param {Array} array The array to process.
      * @param {number} [size=1] The length of each chunk.
-     * @returns The new array of chunks.
+     * @returns {Array} The new array of chunks.
      */
     chunk(array, size=1) {
         if (size === undefined) {
@@ -144,6 +144,24 @@ let pastaparse = {
             arrayChunks.push(arrayChunk);
         }
         return arrayChunks;
+    },
+
+    /**
+     * Counts the amount of instances of a certain character found within a given string.
+     * @param {string} string The string to process.
+     * @param {string} character The character to count.
+     * @returns {number} The number of 'character' instances found in 'string'.
+     */
+    countChar(string, character) {
+        let count = 0;
+        if (string.includes(character)) {
+            for (let c of string) {
+                if (c === character) {
+                    count++;
+                }
+            }
+        }
+        return count;
     }
 };
 
