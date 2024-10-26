@@ -163,6 +163,15 @@ let pastaparse = {
     },
 
     /**
+     * Checks if all elements in an array are null.
+     * @param {Array} array The array to check.
+     * @returns {boolean} True if all elements in the array are null, False otherwise.
+     */
+    allNull(array) {
+        return array.every(element => element === null);
+    },
+
+    /**
      * Creates a slice of array with n elements dropped from the beginning.
      * @param {Array} array The array to process.
      * @param {number} n The number of elements to drop.
