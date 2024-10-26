@@ -60,6 +60,66 @@ let pastaparse = {
     },
 
     /**
+     * Counts the amount of instances of a certain character found within a given string.
+     * @param {string} string The string to process.
+     * @param {string} character The character to count.
+     * @returns {number} The number of 'character' instances found in 'string'.
+     */
+    countChar(string, character) {
+        let count = 0;
+        if (string.includes(character)) {
+            for (let c of string) {
+                if (c === character) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    },
+
+    /**
+     * Removes trailing zeroes from the end of a number string.
+     * i.e. "1.25000" -> "1.25"
+     * @param {string} numberString The number string to trim.
+     * @returns {string} The trimmed number string.
+     */
+    trimTrailingZeroes(numberString) {
+        if (!numberString || numberString.trim() === '') {
+            return numberString;
+        }
+        // ***** Check number string is not a sentence or is a number
+        if (this.countChar(numberString, '.') > 1 || isNaN(numberString)) {
+            throw new Error('Input is not a valid number string.');
+        }
+        let trimmedString = numberString.includes('.') 
+            ? numberString.replace(/0+$/, '').replace(/\.$/, '') 
+            : numberString;
+        return trimmedString;
+    },
+
+    /**
+     * Extracts all the numbers from a given string.
+     * Useful for extracting numbers within a string as an array of numbers.
+     * @param {string} string The string to extract numbers from.
+     * @returns {Array} The array of numbers extracted from the string.
+     */
+    extractNumbers(string) {
+        // ***** Regular expression to match numbers (including decimals)
+        const regex = /[-+]?\d*\.\d+|\d+/g;
+        const matches = string.match(regex);
+        const numbers = [];
+        if (matches) {
+            for (let match of matches) {
+                let number = parseFloat(match);
+                if (!isNaN(number)) {
+                    numbers.push(number);
+                }
+            }
+        }
+        return numbers;
+    },
+
+    /**
      * Checks if key is a direct property of object.
      * @param {object} object The object to query.
      * @param {string} key The object property to check.
@@ -144,24 +204,6 @@ let pastaparse = {
             arrayChunks.push(arrayChunk);
         }
         return arrayChunks;
-    },
-
-    /**
-     * Counts the amount of instances of a certain character found within a given string.
-     * @param {string} string The string to process.
-     * @param {string} character The character to count.
-     * @returns {number} The number of 'character' instances found in 'string'.
-     */
-    countChar(string, character) {
-        let count = 0;
-        if (string.includes(character)) {
-            for (let c of string) {
-                if (c === character) {
-                    count++;
-                }
-            }
-        }
-        return count;
     }
 };
 
