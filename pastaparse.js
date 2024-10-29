@@ -21,7 +21,7 @@ let pastaparse = {
      * @param {number} end The end of the range.
      * @returns {boolean} True if number is in range, else false.
      */
-    inRange(number, start = 0, end) {
+    inRange(number, start=0, end) {
         if (typeof end === 'undefined') {
             end = start;
             start = 0;
@@ -44,7 +44,7 @@ let pastaparse = {
      * @param {string} [string=''] The string to inspect.
      * @returns {Array} The words of string.
      */
-    words(string = '') {
+    words(string='') {
         const words = string.split(' ');
         return words;
     },
@@ -55,7 +55,7 @@ let pastaparse = {
      * @param {number} [length=0] The padding length.
      * @returns {string} The padded string.
      */
-    pad(string = '', length = 0) {
+    pad(string='', length=0) {
         if (length <= string.length) {
             return string;
         }
@@ -227,6 +227,20 @@ let pastaparse = {
             arrayChunks.push(arrayChunk);
         }
         return arrayChunks;
+    },
+
+    /**
+     * Checks if an array is a nested array.
+     * @param {Array} array The array to check.
+     * @param {boolean} [strictlyNested=false] If true, checks if the array is strictly nested, meaning all elements are arrays.
+     * @returns {boolean} True if the array is nested, False otherwise.
+     */
+    isNestedArray(array, strictlyNested=false) {
+        if (strictlyNested) {
+            return array.every(element => Array.isArray(element));
+        } else {
+            return array.some(element => Array.isArray(element));
+        }
     }
 
     // #endregion
