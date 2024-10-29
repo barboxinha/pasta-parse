@@ -1,4 +1,6 @@
 let pastaparse = {
+    // #region Number Methods
+
     /** 
      * Clamps number within the inclusive lower and upper bounds.
      * @param {number} number The number to clamp.
@@ -32,6 +34,10 @@ let pastaparse = {
         const isInRange = start <= number && number < end;
         return isInRange;
     },
+
+    // #endregion
+
+    // #region String Methods
 
     /**
      * Splits string into an array of its words.
@@ -119,6 +125,10 @@ let pastaparse = {
         return numbers;
     },
 
+    // #endregion
+
+    // #region Object Methods
+
     /**
      * Checks if key is a direct property of object.
      * @param {object} object The object to query.
@@ -161,6 +171,10 @@ let pastaparse = {
         }
         return firstKey;
     },
+
+    // #endregion
+
+    // #region Array Methods
 
     /**
      * Checks if all elements in an array are null.
@@ -214,6 +228,8 @@ let pastaparse = {
         }
         return arrayChunks;
     }
+
+    // #endregion
 };
 
 module.exports = pastaparse;
