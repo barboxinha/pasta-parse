@@ -122,6 +122,40 @@ let pastaparse = {
     },
 
     /**
+     * Converts a string of unit feet and inches to a float value in feet.
+     * Accepts the following formats: 2' - 6" ; 1' - 6 1/2" ; 0' 6" ; 0' 6 1/2"
+     * @param {string} feetInches The string of feet and inches to convert.
+     * @returns {number} The float value equivalent in feet.
+     * @throws {Error} If the input string is null or empty.
+     */
+    feetInchesToFloat(feetInches) {
+        if (!feetInches || feetInches.trim() === "") {
+            throw new Error('Input string is null or empty.');
+        }
+        const ftInches = this.removeFeetInchChars(feetInches);
+        let ft = 0.0;
+        let inch = 0.0;
+        let fraction = 0.0;
+        if (ftInches.includes('-')) {
+            let parts = ftInches.split('-');
+            ft = this.convertFractionToFloat(parts[0].trimEnd());
+            let inchParts = parts[parts.length - 1].trimStart().split(' ');
+            inch = this.convertFractionToFloat(inchParts[0]);
+            if (inchParts.length > 1) {
+                fraction = this.convertFractionToFloat(inchParts[1]);
+            }
+        } else {
+            let parts = ftInches.split(' ');
+            ft = this.convertFractionToFloat(parts[0]);
+            inch = this.convertFractionToFloat(parts[1]);
+            if (parts.length > 2) {
+                fraction = this.convertFractionToFloat(parts[parts.length - 1]);
+            }
+        }
+        return ft + ((inch + fraction) / 12);
+    },
+
+    /**
      * Removes trailing zeroes from the end of a number string.
      * i.e. "1.25000" -> "1.25"
      * @param {string} numberString The number string to trim.
