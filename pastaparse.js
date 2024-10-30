@@ -84,6 +84,44 @@ let pastaparse = {
     },
 
     /**
+     * Removes all feet (') and inch (") unit characters from a string.
+     * @param {string} feetInchString The string to process.
+     * @returns {string} The string with any feet and inch characters removed.
+     */
+    removeFeetInchChars(feetInchString) {
+        if (feetInchString.includes('\'') || feetInchString.includes('"')) {
+            feetInchString = feetInchString.replace('\'', '').replace('"', '');
+        }
+        return feetInchString;
+    },
+
+    /**
+     * Attempts to convert a fraction string to a number.
+     * @param {string} fraction The fraction string to convert.
+     * @returns {number} The converted number.
+     */
+    convertFractionToFloat(fraction) {
+        const number = parseFloat(fraction);
+        if (!isNaN(number)) {
+            return number;
+        } else {
+            let parts = fraction.split('/');
+            if (parts.length === 2) {
+                let numeratorParts = parts[0].split(' ');
+                let whole = 0;
+                let numerator = parseFloat(numeratorParts[numeratorParts.length - 1]);
+                let denominator = parseFloat(parts[1]);
+                if (numeratorParts.length === 2) {
+                    whole = parseFloat(numeratorParts[0]);
+                }
+                let frac = numerator / denominator;
+                return whole < 0 ? whole - frac : whole + frac;
+            }
+            throw new Error('Could not convert the fractional string to a number.');
+        }
+    },
+
+    /**
      * Removes trailing zeroes from the end of a number string.
      * i.e. "1.25000" -> "1.25"
      * @param {string} numberString The number string to trim.
