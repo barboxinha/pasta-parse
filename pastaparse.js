@@ -230,6 +230,31 @@ let pastaparse = {
     },
 
     /**
+     * Determines the maximum length of the given arrays. 
+     * Then, iterates through each array and appends the last item of the array until its length matches the maximum length.
+     * @param {Array} arrays The nested array to equalize.
+     * @returns {Array} The equalized nested array containing the same amount of items.
+     */
+    equalizeArrayLengths(arrays) {
+        if (!this.isNestedArray(arrays, true)) {
+            return arrays;
+        }
+        // ***** Find the maximum length among all arrays
+        const maxLength = Math.max(arrays.map(array => array.length));
+        // ***** Duplicate the last item in each array to match the maximum length
+        for (let array of arrays) {
+            while (array.length < maxLength) {
+                if (array.length > 0) {
+                    array.push(array[array.length - 1]);
+                } else {
+                    array.push(null);
+                }
+            }
+        }
+        return arrays;
+    },
+
+    /**
      * Checks if an array is a nested array.
      * @param {Array} array The array to check.
      * @param {boolean} [strictlyNested=false] If true, checks if the array is strictly nested, meaning all elements are arrays.
