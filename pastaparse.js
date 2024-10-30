@@ -42,7 +42,7 @@ let pastaparse = {
     /**
      * Splits string into an array of its words.
      * @param {string} [string=''] The string to inspect.
-     * @returns {Array} The words of string.
+     * @returns {string[]} The words of string.
      */
     words(string='') {
         const words = string.split(' ');
@@ -179,7 +179,7 @@ let pastaparse = {
      * Extracts all the numbers from a given string.
      * Useful for extracting numbers within a string as an array of numbers.
      * @param {string} string The string to extract numbers from.
-     * @returns {Array} The array of numbers extracted from the string.
+     * @returns {number[]} The array of numbers extracted from the string.
      */
     extractNumbers(string) {
         // ***** Regular expression to match numbers (including decimals)
