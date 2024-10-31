@@ -69,10 +69,15 @@ let pastaparse = {
      * Counts the amount of instances of a certain character found within a given string.
      * @param {string} string The string to process.
      * @param {string} character The character to count.
+     * @param {boolean} [caseSensitive=true] If true, the search is case sensitive. True by default.
      * @returns {number} The number of 'character' instances found in 'string'.
      */
-    countChar(string, character) {
+    countChar(string, character, caseSensitive=true) {
         let count = 0;
+        if (!caseSensitive) {
+            string = string.toLowerCase();
+            character = character.toLowerCase();
+        }
         if (string.includes(character)) {
             for (let c of string) {
                 if (c === character) {
