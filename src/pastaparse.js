@@ -313,11 +313,11 @@ let pastaparse = {
      * @returns {Array} The equalized nested array containing the same amount of items.
      */
     equalizeArrayLengths(arrays) {
-        if (!this.isNestedArray(arrays, true)) {
+        if (!this.isNestedArray(arrays, true) || arrays.every(array => array.length === 0)) {
             return arrays;
         }
         // ***** Find the maximum length among all arrays
-        const maxLength = Math.max(arrays.map(array => array.length));
+        const maxLength = Math.max(...arrays.map(array => array.length));
         // ***** Duplicate the last item in each array to match the maximum length
         for (let array of arrays) {
             while (array.length < maxLength) {
