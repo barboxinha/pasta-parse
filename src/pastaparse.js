@@ -107,7 +107,7 @@ let pastaparse = {
      */
     convertFractionToFloat(fraction) {
         const number = parseFloat(fraction);
-        if (!isNaN(number)) {
+        if (!isNaN(number) && number.toString() === fraction) {
             return number;
         } else {
             let parts = fraction.split('/');
