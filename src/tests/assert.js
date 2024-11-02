@@ -50,6 +50,18 @@ const assert = {
             console.log("\x1b[31m%s\x1b[0m", `${testNumber} - ${description} - Failed: ${functionString} returned ${arrayToString(actualValue)} instead of ${arrayToString(expectedValue)}.`);
         }
     },
+
+    throwsError(testName, description, functionString, func, ...args) {
+        const testNumber = this.incrementTestNumber(testName);
+
+        try {
+            func(...args);
+            console.log("\x1b[31m%s\x1b[0m", `${testNumber} - ${description} - Failed: ${functionString} did not throw an error.`);
+        } catch (error) {
+            console.log("\x1b[32m%s\x1b[0m", `${testNumber} - ${description} - Passed!`);
+            console.log("\x1b[32m%s\x1b[0m", `\tError Message: \"${error.message}\"`);
+        }
+    }
 };
 
 function arrayToString(array) {
