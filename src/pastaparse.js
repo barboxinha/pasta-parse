@@ -35,6 +35,22 @@ let pastaparse = {
         return isInRange;
     },
 
+    /**
+     * Rounds number to the specified decimal places.
+     * @param {number} number The number to round.
+     * @param {number} [decimalPlaces=0] The number of decimal places to round to. Default is 0.
+     * @returns {number} The rounded number.
+     */
+    roundToDecimalPlace(number, decimalPlaces=0) {
+        if (decimalPlaces === 0) {
+            return Math.round(number);
+        }
+        const factor = Math.pow(10, decimalPlaces);
+        let roundednumber = Math.round(number * factor) / factor;
+        let roundedString = roundednumber.toFixed(decimalPlaces);
+        return parseFloat(roundedString);
+    },
+
     // #endregion
 
     // #region String Methods
