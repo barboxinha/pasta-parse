@@ -3,6 +3,11 @@ let pastaparse = {
 
     /** 
      * Clamps number within the inclusive lower and upper bounds.
+     * 
+     * @static
+     * @memberof pastaparse
+     * @since 1.0.0
+     * @category Number
      * @param {number} number The number to clamp.
      * @param {number} lower The lower bound.
      * @param {number} upper The upper bound.
@@ -16,6 +21,11 @@ let pastaparse = {
 
     /**
      * Checks if n is between start and up to, but not including, end. If end is not specified, it's set to start with start then set to 0. If start is greater than end, the params are swapped to support negative ranges.
+     * 
+     * @static
+     * @memberof pastaparse
+     * @since 1.0.0
+     * @category Number
      * @param {number} number The number to check.
      * @param {number} [start=0] The start of the range.
      * @param {number} end The end of the range.
@@ -37,6 +47,11 @@ let pastaparse = {
 
     /**
      * Rounds number to the specified decimal places.
+     * 
+     * @static
+     * @memberof pastaparse
+     * @since 1.1.0
+     * @category Number
      * @param {number} number The number to round.
      * @param {number} [decimalPlaces=0] The number of decimal places to round to. Default is 0.
      * @returns {number} The rounded number.
@@ -53,10 +68,17 @@ let pastaparse = {
 
     // #endregion
 
+    //*-----------------------------------------------------------------------------------------*/
+
     // #region String Methods
 
     /**
      * Splits string into an array of its words.
+     * 
+     * @static
+     * @memberof pastaparse
+     * @since 1.0.0
+     * @category String
      * @param {string} [string=''] The string to inspect.
      * @returns {string[]} The words of string.
      */
@@ -67,6 +89,11 @@ let pastaparse = {
 
     /**
      * Pads string on the left and right sides if it's shorter than length. Padding characters are truncated if they can't be evenly divided by length.
+     * 
+     * @static
+     * @memberof pastaparse
+     * @since 1.0.0
+     * @category String
      * @param {string} [string=''] The string to pad.
      * @param {number} [length=0] The padding length.
      * @returns {string} The padded string.
@@ -83,6 +110,11 @@ let pastaparse = {
 
     /**
      * Counts the amount of instances of a certain character found within a given string.
+     * 
+     * @static
+     * @memberof pastaparse
+     * @since 1.1.0
+     * @category String
      * @param {string} string The string to process.
      * @param {string} character The character to count.
      * @param {boolean} [caseSensitive=true] If true, the search is case sensitive. True by default.
@@ -106,6 +138,11 @@ let pastaparse = {
 
     /**
      * Removes all feet (') and inch (") unit characters from a string.
+     * 
+     * @static
+     * @memberof pastaparse
+     * @since 1.1.0
+     * @category String
      * @param {string} feetInchString The string to process.
      * @returns {string} The string with any feet and inch characters removed.
      */
@@ -118,6 +155,11 @@ let pastaparse = {
 
     /**
      * Attempts to convert a fraction string to a number.
+     * 
+     * @static
+     * @memberof pastaparse
+     * @since 1.1.0
+     * @category String
      * @param {string} fraction The fraction string to convert.
      * @returns {number} The converted number.
      */
@@ -145,6 +187,11 @@ let pastaparse = {
     /**
      * Converts a string of unit feet and inches to a float value in feet.
      * Accepts the following formats: 2' - 6" ; 1' - 6 1/2" ; 0' 6" ; 0' 6 1/2"
+     * 
+     * @static
+     * @memberof pastaparse
+     * @since 1.1.0
+     * @category String
      * @param {string} feetInches The string of feet and inches to convert.
      * @returns {number} The float value equivalent in feet.
      * @throws {Error} If the input string is null or empty.
@@ -179,6 +226,11 @@ let pastaparse = {
     /**
      * Removes trailing zeroes from the end of a number string.
      * i.e. "1.25000" -> "1.25"
+     * 
+     * @static
+     * @memberof pastaparse
+     * @since 1.1.0
+     * @category String
      * @param {string} numberString The number string to trim.
      * @returns {string} The trimmed number string.
      */
@@ -199,6 +251,11 @@ let pastaparse = {
     /**
      * Extracts all the numbers from a given string.
      * Useful for extracting numbers within a string as an array of numbers.
+     * 
+     * @static
+     * @memberof pastaparse
+     * @since 1.1.0
+     * @category String
      * @param {string} string The string to extract numbers from.
      * @returns {number[]} The array of numbers extracted from the string.
      */
@@ -220,10 +277,17 @@ let pastaparse = {
 
     // #endregion
 
+    //*-----------------------------------------------------------------------------------------*/
+
     // #region Object Methods
 
     /**
      * Checks if key is a direct property of object.
+     * 
+     * @static
+     * @memberof pastaparse
+     * @since 1.0.0
+     * @category Object
      * @param {object} object The object to query.
      * @param {string} key The object property to check.
      * @returns {boolean} True if path exists, else false.
@@ -235,6 +299,11 @@ let pastaparse = {
 
     /**
      * Creates an object composed of the inverted keys and values provided by object. If object contains duplicate values, subsequent values overwrite property assignments of previous values.
+     * 
+     * @static
+     * @memberof pastaparse
+     * @since 1.0.0
+     * @category Object
      * @param {object} object The object to invert.
      * @returns {object} The new inverted object.
      */
@@ -249,6 +318,11 @@ let pastaparse = {
 
     /**
      * Finds the key of the first element matching the predicate instead of the element itself.
+     * 
+     * @static
+     * @memberof pastaparse
+     * @since 1.0.0
+     * @category Object
      * @param {object} object The object to inspect.
      * @param {function} predicate The function invoked per iteration.
      * @returns {*} The key of the matched element, else undefined.
@@ -267,10 +341,17 @@ let pastaparse = {
 
     // #endregion
 
+    //*-----------------------------------------------------------------------------------------*/
+
     // #region Array Methods
 
     /**
      * Checks if all elements in an array are null.
+     * 
+     * @static
+     * @memberof pastaparse
+     * @since 1.1.0
+     * @category Array
      * @param {Array} array The array to check.
      * @returns {boolean} True if all elements in the array are null, False otherwise.
      */
@@ -280,6 +361,11 @@ let pastaparse = {
 
     /**
      * Creates a slice of array with n elements dropped from the beginning.
+     * 
+     * @static
+     * @memberof pastaparse
+     * @since 1.0.0
+     * @category Array
      * @param {Array} array The array to process.
      * @param {number} n The number of elements to drop.
      * @returns {Array} The slice of array.
@@ -294,6 +380,11 @@ let pastaparse = {
 
     /**
      * Creates a slice of array excluding elements dropped from the beginning. Elements are dropped until predicate returns falsey. The predicate is invoked with three arguments: (value, index, array).
+     * 
+     * @static
+     * @memberof pastaparse
+     * @since 1.0.0
+     * @category Array
      * @param {Array} array The array to process.
      * @param {function} predicate The function invoked per iteration.
      * @returns {Array} The slice of array.
@@ -306,6 +397,11 @@ let pastaparse = {
 
     /**
      * Creates an array of elements split into groups the length of size. If array can't be split evenly, the final chunk will be the remaining elements.
+     * 
+     * @static
+     * @memberof pastaparse
+     * @since 1.0.0
+     * @category Array
      * @param {Array} array The array to process.
      * @param {number} [size=1] The length of each chunk.
      * @returns {Array} The new array of chunks.
@@ -325,6 +421,11 @@ let pastaparse = {
     /**
      * Determines the maximum length of the given arrays. 
      * Then, iterates through each array and appends the last item of the array until its length matches the maximum length.
+     * 
+     * @static
+     * @memberof pastaparse
+     * @since 1.1.0
+     * @category Array
      * @param {Array} arrays The nested array to equalize.
      * @returns {Array} The equalized nested array containing the same amount of items.
      */
@@ -349,6 +450,11 @@ let pastaparse = {
 
     /**
      * Checks if an array is a nested array.
+     * 
+     * @static
+     * @memberof pastaparse
+     * @since 1.1.0
+     * @category Array
      * @param {Array} array The array to check.
      * @param {boolean} [strictlyNested=false] If true, checks if the array is strictly nested, meaning all elements are arrays.
      * @returns {boolean} True if the array is nested, False otherwise.
