@@ -1,17 +1,21 @@
+/**
+ * A collection of utility methods for number, string, object, and array manipulations.
+ * 
+ * @namespace pastaparse
+ */
 let pastaparse = {
     // #region Number Methods
 
     /** 
      * Clamps number within the inclusive lower and upper bounds.
      * 
-     * @static
      * @memberof pastaparse
      * @since 1.0.0
      * @category Number
-     * @param {number} number The number to clamp.
-     * @param {number} lower The lower bound.
-     * @param {number} upper The upper bound.
-     * @returns {number} The clamped number.
+     * @param {Number} number The number to clamp.
+     * @param {Number} lower The lower bound.
+     * @param {Number} upper The upper bound.
+     * @returns {Number} The clamped number.
      */
     clamp(number, lower, upper) {
         let lowerClampedValue = Math.max(number, lower);
@@ -22,14 +26,13 @@ let pastaparse = {
     /**
      * Checks if n is between start and up to, but not including, end. If end is not specified, it's set to start with start then set to 0. If start is greater than end, the params are swapped to support negative ranges.
      * 
-     * @static
      * @memberof pastaparse
      * @since 1.0.0
      * @category Number
-     * @param {number} number The number to check.
-     * @param {number} [start=0] The start of the range.
-     * @param {number} end The end of the range.
-     * @returns {boolean} True if number is in range, else false.
+     * @param {Number} number The number to check.
+     * @param {Number} [start=0] The start of the range.
+     * @param {Number} end The end of the range.
+     * @returns {Boolean} True if number is in range, else false.
      */
     inRange(number, start=0, end) {
         if (typeof end === 'undefined') {
@@ -48,13 +51,12 @@ let pastaparse = {
     /**
      * Rounds number to the specified decimal places.
      * 
-     * @static
      * @memberof pastaparse
      * @since 1.1.0
      * @category Number
-     * @param {number} number The number to round.
-     * @param {number} [decimalPlaces=0] The number of decimal places to round to. Default is 0.
-     * @returns {number} The rounded number.
+     * @param {Number} number The number to round.
+     * @param {Number} [decimalPlaces=0] The number of decimal places to round to. Default is 0.
+     * @returns {Number} The rounded number.
      */
     roundToDecimalPlace(number, decimalPlaces=0) {
         if (decimalPlaces === 0) {
@@ -75,12 +77,11 @@ let pastaparse = {
     /**
      * Splits string into an array of its words.
      * 
-     * @static
      * @memberof pastaparse
      * @since 1.0.0
      * @category String
-     * @param {string} [string=''] The string to inspect.
-     * @returns {string[]} The words of string.
+     * @param {String} [string=''] The string to inspect.
+     * @returns {String[]} The words of string.
      */
     words(string='') {
         const words = string.split(' ');
@@ -90,13 +91,12 @@ let pastaparse = {
     /**
      * Pads string on the left and right sides if it's shorter than length. Padding characters are truncated if they can't be evenly divided by length.
      * 
-     * @static
      * @memberof pastaparse
      * @since 1.0.0
      * @category String
-     * @param {string} [string=''] The string to pad.
-     * @param {number} [length=0] The padding length.
-     * @returns {string} The padded string.
+     * @param {String} [string=''] The string to pad.
+     * @param {Number} [length=0] The padding length.
+     * @returns {String} The padded string.
      */
     pad(string='', length=0) {
         if (length <= string.length) {
@@ -111,14 +111,13 @@ let pastaparse = {
     /**
      * Counts the amount of instances of a certain character found within a given string.
      * 
-     * @static
      * @memberof pastaparse
      * @since 1.1.0
      * @category String
-     * @param {string} string The string to process.
-     * @param {string} character The character to count.
-     * @param {boolean} [caseSensitive=true] If true, the search is case sensitive. True by default.
-     * @returns {number} The number of 'character' instances found in 'string'.
+     * @param {String} string The string to process.
+     * @param {String} character The character to count.
+     * @param {Boolean} [caseSensitive=true] If true, the search is case sensitive. True by default.
+     * @returns {Number} The number of 'character' instances found in 'string'.
      */
     countChar(string, character, caseSensitive=true) {
         let count = 0;
@@ -139,12 +138,11 @@ let pastaparse = {
     /**
      * Removes all feet (') and inch (") unit characters from a string.
      * 
-     * @static
      * @memberof pastaparse
      * @since 1.1.0
      * @category String
-     * @param {string} feetInchString The string to process.
-     * @returns {string} The string with any feet and inch characters removed.
+     * @param {String} feetInchString The string to process.
+     * @returns {String} The string with any feet and inch characters removed.
      */
     removeFeetInchChars(feetInchString) {
         if (feetInchString.includes('\'') || feetInchString.includes('"')) {
@@ -156,12 +154,11 @@ let pastaparse = {
     /**
      * Attempts to convert a fraction string to a number.
      * 
-     * @static
      * @memberof pastaparse
      * @since 1.1.0
      * @category String
-     * @param {string} fraction The fraction string to convert.
-     * @returns {number} The converted number.
+     * @param {String} fraction The fraction string to convert.
+     * @returns {Number} The converted number.
      */
     convertFractionToFloat(fraction) {
         const number = parseFloat(fraction);
@@ -188,12 +185,11 @@ let pastaparse = {
      * Converts a string of unit feet and inches to a float value in feet.
      * Accepts the following formats: 2' - 6" ; 1' - 6 1/2" ; 0' 6" ; 0' 6 1/2"
      * 
-     * @static
      * @memberof pastaparse
      * @since 1.1.0
      * @category String
-     * @param {string} feetInches The string of feet and inches to convert.
-     * @returns {number} The float value equivalent in feet.
+     * @param {String} feetInches The string of feet and inches to convert.
+     * @returns {Number} The float value equivalent in feet.
      * @throws {Error} If the input string is null or empty.
      */
     feetInchesToFloat(feetInches) {
@@ -227,12 +223,11 @@ let pastaparse = {
      * Removes trailing zeroes from the end of a number string.
      * i.e. "1.25000" -> "1.25"
      * 
-     * @static
      * @memberof pastaparse
      * @since 1.1.0
      * @category String
-     * @param {string} numberString The number string to trim.
-     * @returns {string} The trimmed number string.
+     * @param {String} numberString The number string to trim.
+     * @returns {String} The trimmed number string.
      */
     trimTrailingZeroes(numberString) {
         if (!numberString || numberString.trim() === '') {
@@ -252,12 +247,11 @@ let pastaparse = {
      * Extracts all the numbers from a given string.
      * Useful for extracting numbers within a string as an array of numbers.
      * 
-     * @static
      * @memberof pastaparse
      * @since 1.1.0
      * @category String
-     * @param {string} string The string to extract numbers from.
-     * @returns {number[]} The array of numbers extracted from the string.
+     * @param {String} string The string to extract numbers from.
+     * @returns {Number[]} The array of numbers extracted from the string.
      */
     extractNumbers(string) {
         // ***** Regular expression to match numbers (including decimals)
@@ -284,13 +278,12 @@ let pastaparse = {
     /**
      * Checks if key is a direct property of object.
      * 
-     * @static
      * @memberof pastaparse
      * @since 1.0.0
      * @category Object
-     * @param {object} object The object to query.
-     * @param {string} key The object property to check.
-     * @returns {boolean} True if path exists, else false.
+     * @param {Object} object The object to query.
+     * @param {String} key The object property to check.
+     * @returns {Boolean} True if path exists, else false.
      */
     has(object, key) {
         const hasValue = object[key] !== undefined;
@@ -300,12 +293,11 @@ let pastaparse = {
     /**
      * Creates an object composed of the inverted keys and values provided by object. If object contains duplicate values, subsequent values overwrite property assignments of previous values.
      * 
-     * @static
      * @memberof pastaparse
      * @since 1.0.0
      * @category Object
-     * @param {object} object The object to invert.
-     * @returns {object} The new inverted object.
+     * @param {Object} object The object to invert.
+     * @returns {Object} The new inverted object.
      */
     invert(object) {
         const invertedObject = {};
@@ -319,12 +311,11 @@ let pastaparse = {
     /**
      * Finds the key of the first element matching the predicate instead of the element itself.
      * 
-     * @static
      * @memberof pastaparse
      * @since 1.0.0
      * @category Object
-     * @param {object} object The object to inspect.
-     * @param {function} predicate The function invoked per iteration.
+     * @param {Object} object The object to inspect.
+     * @param {Function} predicate The function invoked per iteration.
      * @returns {*} The key of the matched element, else undefined.
      */
     findKey(object, predicate) {
@@ -348,12 +339,11 @@ let pastaparse = {
     /**
      * Checks if all elements in an array are null.
      * 
-     * @static
      * @memberof pastaparse
      * @since 1.1.0
      * @category Array
      * @param {Array} array The array to check.
-     * @returns {boolean} True if all elements in the array are null, False otherwise.
+     * @returns {Boolean} True if all elements in the array are null, False otherwise.
      */
     allNull(array) {
         return array.every(element => element === null);
@@ -362,12 +352,11 @@ let pastaparse = {
     /**
      * Creates a slice of array with n elements dropped from the beginning.
      * 
-     * @static
      * @memberof pastaparse
      * @since 1.0.0
      * @category Array
      * @param {Array} array The array to process.
-     * @param {number} n The number of elements to drop.
+     * @param {Number} n The number of elements to drop.
      * @returns {Array} The slice of array.
      */
     drop(array, n) {
@@ -381,12 +370,11 @@ let pastaparse = {
     /**
      * Creates a slice of array excluding elements dropped from the beginning. Elements are dropped until predicate returns falsey. The predicate is invoked with three arguments: (value, index, array).
      * 
-     * @static
      * @memberof pastaparse
      * @since 1.0.0
      * @category Array
      * @param {Array} array The array to process.
-     * @param {function} predicate The function invoked per iteration.
+     * @param {Function} predicate The function invoked per iteration.
      * @returns {Array} The slice of array.
      */
     dropWhile(array, predicate) {
@@ -398,12 +386,11 @@ let pastaparse = {
     /**
      * Creates an array of elements split into groups the length of size. If array can't be split evenly, the final chunk will be the remaining elements.
      * 
-     * @static
      * @memberof pastaparse
      * @since 1.0.0
      * @category Array
      * @param {Array} array The array to process.
-     * @param {number} [size=1] The length of each chunk.
+     * @param {Number} [size=1] The length of each chunk.
      * @returns {Array} The new array of chunks.
      */
     chunk(array, size=1) {
@@ -422,7 +409,6 @@ let pastaparse = {
      * Determines the maximum length of the given arrays. 
      * Then, iterates through each array and appends the last item of the array until its length matches the maximum length.
      * 
-     * @static
      * @memberof pastaparse
      * @since 1.1.0
      * @category Array
@@ -451,13 +437,12 @@ let pastaparse = {
     /**
      * Checks if an array is a nested array.
      * 
-     * @static
      * @memberof pastaparse
      * @since 1.1.0
      * @category Array
      * @param {Array} array The array to check.
-     * @param {boolean} [strictlyNested=false] If true, checks if the array is strictly nested, meaning all elements are arrays.
-     * @returns {boolean} True if the array is nested, False otherwise.
+     * @param {Boolean} [strictlyNested=false] If true, checks if the array is strictly nested, meaning all elements are arrays.
+     * @returns {Boolean} True if the array is nested, False otherwise.
      */
     isNestedArray(array, strictlyNested=false) {
         if (strictlyNested) {
