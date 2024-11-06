@@ -1,0 +1,27 @@
+{
+    "source": {
+        "include": ["./src"],
+        "includePattern": ".+\\.js(doc|x)?$",
+        "exclude": [
+            "node_modules", 
+            "src/tests", 
+            "docs"
+        ]
+    },
+    "recurseDepth": 10,
+    "tags": {
+        "allowUnknownTags": ["category"]
+    },
+    "plugins": [
+        "plugins/markdown",
+        "node_modules/better-docs/category"
+    ],
+    "opts": {
+        "encoding": "utf8",
+        "readme": "./README.md",
+        "destination": "docs/",
+        "recurse": true,
+        "verbose": true,
+        "template": "node_modules/better-docs"
+    }
+}
