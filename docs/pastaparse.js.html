@@ -331,19 +331,19 @@ let pastaparse = {
      * @throws {Error} If the input string is null or empty.
      * @example
      * 
-     * pastaparse.convertFractionToFloat('1/2');
+     * pastaparse.fractionToFloat('1/2');
      * // => 0.5
      * 
-     * pastaparse.convertFractionToFloat('1/4');
+     * pastaparse.fractionToFloat('1/4');
      * // => 0.25
      * 
-     * pastaparse.convertFractionToFloat('5/8');
+     * pastaparse.fractionToFloat('5/8');
      * // => 0.625
      * 
-     * pastaparse.convertFractionToFloat('3 3/4');
+     * pastaparse.fractionToFloat('3 3/4');
      * // => 3.75
      */
-    convertFractionToFloat(fraction) {
+    fractionToFloat(fraction) {
         const number = parseFloat(fraction);
         if (!isNaN(number) &amp;&amp; number.toString() === fraction) {
             return number;
@@ -398,18 +398,18 @@ let pastaparse = {
         let fraction = 0.0;
         if (ftInches.includes('-')) {
             let parts = ftInches.split('-');
-            ft = this.convertFractionToFloat(parts[0].trimEnd());
+            ft = this.fractionToFloat(parts[0].trimEnd());
             let inchParts = parts[parts.length - 1].trimStart().split(' ');
-            inch = this.convertFractionToFloat(inchParts[0]);
+            inch = this.fractionToFloat(inchParts[0]);
             if (inchParts.length > 1) {
-                fraction = this.convertFractionToFloat(inchParts[1]);
+                fraction = this.fractionToFloat(inchParts[1]);
             }
         } else {
             let parts = ftInches.split(' ');
-            ft = this.convertFractionToFloat(parts[0]);
-            inch = this.convertFractionToFloat(parts[1]);
+            ft = this.fractionToFloat(parts[0]);
+            inch = this.fractionToFloat(parts[1]);
             if (parts.length > 2) {
-                fraction = this.convertFractionToFloat(parts[parts.length - 1]);
+                fraction = this.fractionToFloat(parts[parts.length - 1]);
             }
         }
         return ft + ((inch + fraction) / 12);
