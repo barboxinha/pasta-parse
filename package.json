@@ -1,13 +1,35 @@
 {
   "name": "pastaparse",
-  "version": "1.1.0",
-  "description": "A simple JS utility library that provides a collection of functions to help you untangle and manipulate data.",
+  "version": "1.2.0",
+  "private": false,
+  "description": "A simple JS utility library that provides a collection of functions to help you untangle and manipulate strings, numbers, objects and arrays.",
+  "main": "dist/pastaparse.cjs.js",
+  "module": "dist/pastaparse.esm.js",
+  "browser": "dist/pastaparse.umd.js",
+  "files": [
+    "src/pastaparse.js",
+    "dist"
+  ],
   "scripts": {
-    "run-tests": "node src/tests/test-all.js",
+    "build": "rollup -c",
+    "pretest": "npm run build",
+    "test-all": "node src/tests/test-all.js",
     "generate-docs": "jsdoc -c jsdoc.json"
   },
-  "author": "Marco Barboza",
+  "keywords": [
+    "pastaparse",
+    "parse",
+    "pasta"
+  ],
+  "author": "Marco Barboza (https://github.com/barboxinha)",
+  "license": "ISC",
   "devDependencies": {
-    "better-docs": "^2.7.3"
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^28.0.1",
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "better-docs": "^2.7.3",
+    "rollup": "^2.79.2"
   }
 }
