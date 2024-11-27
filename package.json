@@ -1,6 +1,6 @@
 {
   "name": "pastaparse",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "private": false,
   "description": "A simple JS utility library that provides a collection of functions to help you untangle and manipulate strings, numbers, objects and arrays.",
   "main": "dist/pastaparse.cjs.js",
@@ -19,7 +19,22 @@
   "keywords": [
     "pastaparse",
     "parse",
-    "pasta"
+    "pasta",
+    "utility",
+    "extract",
+    "feet",
+    "inches",
+    "library",
+    "js",
+    "javascript",
+    "string",
+    "number",
+    "object",
+    "array",
+    "untangle",
+    "helpers",
+    "functions",
+    "utils"
   ],
   "author": "Marco Barboza (https://github.com/barboxinha)",
   "license": "ISC",
