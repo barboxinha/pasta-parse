@@ -2,6 +2,7 @@
  * A collection of utility methods for number, string, object, and array manipulations.
  * 
  * @namespace pastaparse
+ * @version 1.3.0
  */
 let pastaparse = {
     // #region Number Methods
@@ -662,4 +663,5 @@ let pastaparse = {
     // #endregion
 };
 
+// ***** Export the module in CommonJS format to be compatible with older versions of Node.js
 module.exports = pastaparse;
