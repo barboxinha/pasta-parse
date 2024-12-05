@@ -1,6 +1,6 @@
 <img src="./docs/images/pastaparse-icon.png" alt="pastaparse icon" height="150"/> <img src="./docs/images/pastaparse-icon-text.png" alt="pastaparse text" height="100"/>
 
-**[Docs](./docs/index.html)** | 
+**[Docs](https://barboxinha.github.io/pastaparse/index.html)** | 
 **[npm](https://www.npmjs.com/package/pastaparse)** |
 **[Wiki](https://github.com/barboxinha/pastaparse/wiki)** | 
 **[Changelog](https://github.com/barboxinha/pastaparse/wiki/Changelog)**
@@ -9,7 +9,7 @@
 
 Pastaparse is a simple, light-weight JavaScript utility library conceived to help you untangle your strings, arrays, numbers and objects.
 
-It burrows some of my favorite data manipulation methods from *[lodash](https://lodash.com/)* as well as provides some unique ones that have come in handy throughout the years. Looking at you *[feetInchesToFloat](./docs/pastaparse.html#.feetInchesToFloat)*!
+It burrows some of my favorite data manipulation methods from *[lodash](https://lodash.com/)* as well as provides some unique ones that have come in handy throughout the years. Looking at you *[feetInchesToFloat](https://barboxinha.github.io/pastaparse/pastaparse.html#.feetInchesToFloat)*!
 
 ## Installation
 
@@ -63,7 +63,7 @@ const decimalfeetInches = pastaparse.feetInchesToFloat(feetInches);
 console.log(decimalfeetInches); // => 3.375
 ```
 
-For detailed documentation and examples, check out the [Docs](./docs/pastaparse.html).
+For detailed documentation and examples, check out the [Docs](https://barboxinha.github.io/pastaparse/pastaparse.html).
 
 ## Contribute
 
